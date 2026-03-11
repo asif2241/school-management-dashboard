@@ -1,4 +1,6 @@
+import AttendanceChart from '@/components/AttendanceChart'
 import CountChart from '@/components/CountChart'
+import FinanceChart from '@/components/FinanceChart'
 import UserCard from '@/components/UserCard'
 import React from 'react'
 
@@ -20,6 +22,14 @@ export default function page() {
                     <div className='w-full lg:w-1/3 h-[450px]'>
                         <CountChart></CountChart>
                     </div>
+                    {/* attendance chart */}
+                    <div className='w-full lg:w-2/3 h-[450px]'>
+                        <AttendanceChart></AttendanceChart>
+                    </div>
+                </div>
+                {/* bottom chart */}
+                <div className='w-full h-[500px]'>
+                    <FinanceChart />
                 </div>
             </div>
         </div>
