@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -6,13 +7,13 @@ import { calendarEvents } from "@/lib/data";
 
 const localizer = momentLocalizer(moment)
 
-
-export default function BigCalender() {
+export default function BigCalendar() {
     const [view, setView] = useState<View>(Views.WORK_WEEK);
 
     const handleOnChangeView = (selectedView: View) => {
         setView(selectedView);
     };
+
     return (
         <Calendar
             localizer={localizer}
@@ -23,8 +24,11 @@ export default function BigCalender() {
             view={view}
             style={{ height: "98%" }}
             onView={handleOnChangeView}
-            min={new Date(2025, 1, 0, 8, 0, 0)}
-            max={new Date(2025, 1, 0, 17, 0, 0)}
+            // Set min/max to 8 AM and 5 PM for the school day
+            min={new Date(2026, 0, 1, 8, 0, 0)}
+            max={new Date(2026, 0, 1, 17, 0, 0)}
+            // Default date to show (August 2026)
+            defaultDate={new Date(2026, 7, 10)}
         />
     );
 };
